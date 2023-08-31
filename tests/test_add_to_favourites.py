@@ -11,7 +11,7 @@ from pages.favourite_pages import FavouritesPage
 
 def test_add_to_favourites(set_up):
     warnings.filterwarnings("ignore")
-    service = Service(executable_path='/home/nevi/Documents/utilities/chromedriver-linux64/chromedriver')
+    service = Service(executable_path='/path') # Указать  путь к хромдрайверу
     driver = webdriver.WebDriver(service=service)
 
     card_of_product = CardOfProductPage(driver)
