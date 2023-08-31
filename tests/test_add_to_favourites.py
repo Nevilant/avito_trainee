@@ -1,19 +1,23 @@
 import time
+import warnings
+
 
 from selenium.webdriver.chrome import webdriver
 from selenium.webdriver.chrome.service import Service
 
 from pages.card_of_product_page import CardOfProductPage
+from pages.favourite_pages import FavouritesPage
 
 
-def test_add_to_favourites():
+def test_add_to_favourites(set_up):
+    warnings.filterwarnings("ignore")
     service = Service(executable_path='/home/nevi/Documents/utilities/chromedriver-linux64/chromedriver')
     driver = webdriver.WebDriver(service=service)
 
     card_of_product = CardOfProductPage(driver)
     card_of_product.add_to_favourite()
 
-    time.sleep(5)
+    favourites = FavouritesPage(driver)
+    favourites.check_favourites()
+
     driver.quit()
-
-

@@ -7,3 +7,7 @@ class Base:
         value_word = word.text
         assert value_word == result
         print('Good value word')
+
+    def get_current_url(self):
+        get_url = self.driver.current_url
+        print("Current url " + get_url)
